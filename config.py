@@ -1,9 +1,12 @@
 #!/usr/bin/python
+import os
 from configparser import ConfigParser
+
+DIRNAME = os.path.dirname(__file__)
 
 def config(filename='database.ini', section='postgresql'):
     parser = ConfigParser()
-    parser.read(filename)
+    parser.read(os.path.join(DIRNAME,filename))
 
     db = {}
     if parser.has_section(section):
