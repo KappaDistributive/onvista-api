@@ -17,7 +17,7 @@ def insert_etf_data():
         data = etf_data_list()
         for entry in data:
             [name, kind, isin, price, currency] = entry
-            cur.execute('INSERT INTO prices (name, type, isin, price, currency) VALUES (%s, %s, %s, %s, %s)', (name, kind, isin, price, currency))
+            cur.execute('INSERT INTO prices (name, kind, isin, price, currency) VALUES (%s, %s, %s, %s, %s)', (name, kind, isin, price, currency))
         conn.commit() 
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
