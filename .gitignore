@@ -1,2 +1,3 @@
 *.ini
 *.list
+__pycache__/

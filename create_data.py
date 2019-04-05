@@ -1,8 +1,11 @@
 #!/usr/bin/python
+import os
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
+
+DIRNAME = os.path.dirname(__file__)
 
 def simple_get(url):
     """
@@ -49,7 +52,7 @@ def etf_data(base_url, isin):
 
 def isin_list(filename):
     result = [] 
-    with open(filename, 'r') as f:
+    with open(os.path.join(DIRNAME,filename), 'r') as f:
         for entry in f:
             result.append(entry.strip())
     return result 
